@@ -1,7 +1,7 @@
 // Google Sheets API Ayarları
 const SHEET_ID = '1cOFgxgLkHDKMbNSUWnOJ4mrmmq6G2Xz80RKURtBkTKE'; // Google Sheet ID'nizi buraya yapıştırın
 const API_KEY = 'AIzaSyDltb5FbPvL9bLgj_GK4_DEDaPK0A7oM_g'; // Google API anahtarınızı buraya yapıştırın
-const RANGE = 'Sheet1!A1:M'; // Sheet adınızı ve sütun aralığınızı belirtin
+const RANGE = 'Sayfa1!A1:M'; // Sheet adınızı ve sütun aralığınızı belirtin
 
 // Google Sheets verilerini çek
 async function fetchSheetData() {
