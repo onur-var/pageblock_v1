@@ -5,11 +5,24 @@ const RANGE = 'Sayfa1!A1:M'; // Sheet adınızı ve sütun aralığınızı beli
 
 // Google Sheets verilerini çek
 async function fetchSheetData() {
-    const url = `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/${RANGE}?key=${API_KEY}`;
-    const response = await fetch(url);
-    const data = await response.json();
-    populateTable(data.values);
+    try {
+        const url = `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/${RANGE}?key=${API_KEY}`;
+        const response = await fetch(url);
+        if (!response.ok) {
+            throw new Error(`HTTP Error ${response.status}: ${response.statusText}`);
+        }
+        const data = await response.json();
+        console.log("Google Sheets API'den Gelen Veri:", data); // Debug için ekledik
+        if (data.values) {
+            populateTable(data.values);
+        } else {
+            throw new Error("Gelen veri boş.");
+        }
+    } catch (error) {
+        console.error("API'den veri alınırken hata oluştu:", error.message);
+    }
 }
+
 
 // Tabloyu doldur
 function populateTable(data) {
