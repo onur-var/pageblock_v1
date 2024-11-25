@@ -1,36 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Google Sheets Veri Çekme</title>
-    <style>
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-        th, td {
-            border: 1px solid #ddd;
-            padding: 8px;
-        }
-        th {
-            cursor: pointer;
-        }
-        .search-box {
-            margin-bottom: 15px;
-        }
-    </style>
-</head>
-<body>
-    <div class="search-box">
-        <input type="text" id="searchInput" placeholder="Arama yap..." onkeyup="filterTable()">
-    </div>
-    <table id="dataTable">
-        <thead>
-            <tr>
-                <th>A/C TYPE</th>
-                <th>REFERANCE</th>
-                <th>A/C</th>
+<thead>
+    <tr>
+        <th>
+            A/C TYPE
+            <select id="filterA/CType" onchange="filterColumn(0)">
+                <option value="">Tümü</option>
+            </select>
+        </th>
+        <th>
+            REFERANCE
+            <select id="filterReference" onchange="filterColumn(1)">
+                <option value="">Tümü</option>
+            </select>
+        </th>
+               <th>A/C TYPE</th>
+                <th>A/C REG</th>
                 <th>SUBJECT</th>
                 <th>fot</th>
                 <th>sgh</th>
@@ -42,13 +25,5 @@
                 <th>chapter</th>
                 <th>wo</th>
                 <th>task_card</th>
-            </tr>
-        </thead>
-        <tbody>
-            <!-- Veriler buraya eklenecek -->
-        </tbody>
-    </table>
-
-    <script src="script.js"></script>
-</body>
-</html>
+    </tr>
+</thead>
