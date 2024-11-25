@@ -14,16 +14,7 @@
             padding: 8px;
         }
         th {
-            position: relative;
-        }
-        th input {
-            width: 90%;
-            padding: 4px;
-            margin-top: 4px;
-            font-size: 12px;
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
+            cursor: pointer;
         }
         .search-box {
             margin-bottom: 15px;
@@ -37,14 +28,8 @@
     <table id="dataTable">
         <thead>
             <tr>
-                <th>
-                    A/C TYPE
-                    <input type="text" placeholder="Filtre..." onkeyup="filterColumn(0)">
-                </th>
-                <th>
-                    A/C REG
-                    <input type="text" placeholder="Filtre..." onkeyup="filterColumn(1)">
-                </th>
+               <th>A/C TYPE</th>
+                <th>A/C REG</th>
                 <th>SUBJECT</th>
                 <th>fot</th>
                 <th>sgh</th>
