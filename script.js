@@ -32,12 +32,6 @@ function filterTable() {
     const input = document.getElementById("searchInput").value.toLowerCase();
     const rows = document.querySelectorAll("#dataTable tbody tr");
 
-    // Sütun bazlı filtreleme işlevi
-function filterColumn(columnIndex) {
-    const filterInputs = document.querySelectorAll("thead input");
-    const filters = Array.from(filterInputs).map(input => input.value.toLowerCase());
-    const rows = document.querySelectorAll("#dataTable tbody tr");
-
     rows.forEach(row => {
         const cells = row.querySelectorAll("td");
         const rowText = Array.from(cells).map(cell => cell.textContent.toLowerCase()).join(' ');
