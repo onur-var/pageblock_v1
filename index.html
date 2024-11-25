@@ -5,30 +5,56 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Google Sheets Veri Çekme</title>
     <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f9f9f9;
+            color: #333;
+        }
         table {
             width: 100%;
             border-collapse: collapse;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
         th, td {
             border: 1px solid #ddd;
             padding: 8px;
+            text-align: left;
         }
         th {
+            background-color: #f4f4f4;
             cursor: pointer;
         }
-        .search-box {
+        .search-box, .filters {
             margin-bottom: 15px;
+        }
+        .filters {
+            display: flex;
+            gap: 10px;
+        }
+        select, input[type="text"] {
+            padding: 8px;
+            font-size: 14px;
         }
     </style>
 </head>
 <body>
     <div class="search-box">
-        <input type="text" id="searchInput" placeholder="Arama yap..." onkeyup="filterTable()">
+        <input type="text" id="searchInput" placeholder="Genel arama yap..." onkeyup="filterTable()">
+    </div>
+    <div class="filters">
+        <select id="filterColumn1" onchange="filterTable()">
+            <option value="">A/C TYPE Filtrele</option>
+        </select>
+        <select id="filterColumn2" onchange="filterTable()">
+            <option value="">A/C REG Filtrele</option>
+        </select>
     </div>
     <table id="dataTable">
         <thead>
             <tr>
-               <th>A/C TYPE</th>
+                <th>A/C TYPE</th>
                 <th>A/C REG</th>
                 <th>SUBJECT</th>
                 <th>fot</th>
