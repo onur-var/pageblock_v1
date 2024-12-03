@@ -5,49 +5,127 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Google Sheets Veri Çekme</title>
     <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .search-box {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .search-box input {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .filter-select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
         table {
             width: 100%;
             border-collapse: collapse;
+            background-color: #fff;
+            border-radius: 10px;
+            overflow: hidden;
         }
+
         th, td {
             border: 1px solid #ddd;
-            padding: 8px;
+            padding: 10px;
+            text-align: left;
         }
+
         th {
+            background-color: #f2f2f2;
             cursor: pointer;
         }
-        .search-box {
-            margin-bottom: 15px;
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        @media (max-width: 768px) {
+            table {
+                font-size: 14px;
+            }
+
+            th, td {
+                padding: 8px;
+            }
+
+            .search-box {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 480px) {
+            table {
+                font-size: 12px;
+            }
+
+            th, td {
+                padding: 6px;
+            }
+
+            .search-box input {
+                font-size: 14px;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="search-box">
-        <input type="text" id="searchInput" placeholder="Arama yap..." onkeyup="filterTable()">
+    <div class="container">
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="Arama yap..." onkeyup="filterTable()">
+        </div>
+        <table id="dataTable">
+            <thead>
+                <tr id="headerRow">
+                    <th>A/C TYPE</th>
+                    <th>A/C REG</th>
+                    <th>SUBJECT</th>
+                    <th>fot</th>
+                    <th>sgh</th>
+                    <th>ri</th>
+                    <th>ts</th>
+                    <th>mod</th>
+                    <th>rep</th>
+                    <th>insp</th>
+                    <th>chapter</th>
+                    <th>wo</th>
+                    <th>task_card</th>
+                </tr>
+                <tr id="filterRow">
+                    <!-- Filtre seçenekleri buraya dinamik olarak eklenecek -->
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Veriler buraya eklenecek -->
+            </tbody>
+        </table>
     </div>
-    <table id="dataTable">
-        <thead>
-            <tr>
-               <th>A/C TYPE</th>
-                <th>A/C REG</th>
-                <th>SUBJECT</th>
-                <th>fot</th>
-                <th>sgh</th>
-                <th>ri</th>
-                <th>ts</th>
-                <th>mod</th>
-                <th>rep</th>
-                <th>insp</th>
-                <th>chapter</th>
-                <th>wo</th>
-                <th>task_card</th>
-            </tr>
-        </thead>
-        <tbody>
-            <!-- Veriler buraya eklenecek -->
-        </tbody>
-    </table>
-
     <script src="script.js"></script>
 </body>
 </html>
